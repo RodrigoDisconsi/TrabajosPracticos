@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1554390425 source:c:\users\rodri\desktop\tp1\operaciones.c
+	"operaciones.h"
+
+1554390471 c:\users\rodri\desktop\tp1\operaciones.h
+
+1554390940 source:c:\users\rodri\desktop\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"operaciones.h"
+	"funcionMenu.h"
+
+1554232624 c:\users\rodri\desktop\tp1\funcionmenu.h
+
+1554398248 source:f:\tp1\funcionmenu.c
+	"funcionMenu.h"
+	<stdio.h>
+	<stdlib.h>
+
+1554232624 f:\tp1\funcionmenu.h
+
+1554415750 source:f:\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"operaciones.h"
+	"funcionMenu.h"
+
+1554415770 f:\tp1\operaciones.h
+
+1554415848 source:f:\tp1\operaciones.c
+	"operaciones.h"
+

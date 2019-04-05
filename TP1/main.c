@@ -20,6 +20,9 @@ int main()
     int num1;
     int num2;
     int suma, resta, multiplicacion;
+    int flagDivision;     //Para saber que retorna la funcion y saber si pudo hacerse correctamente o no
+    int flagFactorialA;   //Para saber que retorna la funcion y saber si pudo hacerse correctamente o no
+    int flagFactorialB;   //Para saber que retorna la funcion y saber si pudo hacerse correctamente o no
     double factorialA, factorialB;
     float division;
     char seguir = 's';
@@ -57,10 +60,10 @@ int main()
                 {
                     suma = funcionSumar(num1, num2);
                     resta = funcionResta(num1, num2);
-                    division = funcionDivision(num1, num2);
+                    flagDivision = funcionDivision(num1, num2, &division);
                     multiplicacion = funcionMultiplcacion(num1, num2);
-                    factorialA = funcionFactorial(num1);
-                    factorialB = funcionFactorial(num2);
+                    flagFactorialA = funcionFactorial(num1, &factorialA);
+                    flagFactorialB =  funcionFactorial(num2, &factorialB);
                     flagOperaciones = 1;     //Sirve para saber si ya se hicieron las operaciones para poder mostrarlas.
                     printf("\n***Las operaciones se hicieron correctamente***\n\n");
                 }
@@ -75,7 +78,7 @@ int main()
                     printf("\nEl resultado de las operaciones son:\n");
                     printf("A- El resultado de A+B es: %d\n", suma);
                     printf("B- El resultado de A-B es: %d\n", resta);
-                        if (num2 == 0)
+                        if (flagDivision == 0)
                         {
                             printf("C- No es posible dividir por 0\n");
                         }
@@ -84,15 +87,15 @@ int main()
                                 printf("C- El resultado de A/B es: %.2f\n", division);
                         }
                     printf("D- El resultado de A*B es: %d\n", multiplicacion);
-                        if (factorialA == -1 && factorialB == -1) //Como la función retorna un "-1" me indica que no se pudo realizar correctamente el factorial de dichos números
+                        if (flagFactorialA == 0 && flagFactorialB == 0) //Como la función retorna un "-1" me indica que no se pudo realizar correctamente el factorial de dichos números
                         {
                             printf("E- No es posible hacer el factorial de un numero negativo\n\n");
                         }
-                        else if (factorialA != -1 && factorialB == -1)
+                        else if (flagFactorialA != 0 && flagFactorialB == 0)
                         {
                             printf("E- El factorial de A es: %.0f y B no es posible por ser negativo\n\n", factorialA);
                         }
-                        else if (factorialA == -1 && factorialB != -1)
+                        else if (flagFactorialA == 0 && flagFactorialB != 0)
                         {
                             printf("E- El factorial de A no es posible por ser negativo y el de B es: %.0f\n\n", factorialB);
                         }

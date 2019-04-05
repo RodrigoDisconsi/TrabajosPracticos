@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1554390425 source:c:\users\rodri\desktop\tp1\operaciones.c
+1554496597 source:c:\users\rodri\desktop\tp1\operaciones.c
 	"operaciones.h"
 
-1554390471 c:\users\rodri\desktop\tp1\operaciones.h
+1554496591 c:\users\rodri\desktop\tp1\operaciones.h
 
-1554390940 source:c:\users\rodri\desktop\tp1\main.c
+1554496612 source:c:\users\rodri\desktop\tp1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -31,4 +31,9 @@
 
 1554415848 source:f:\tp1\operaciones.c
 	"operaciones.h"
+
+1554398248 source:c:\users\rodri\desktop\tp1\funcionmenu.c
+	"funcionMenu.h"
+	<stdio.h>
+	<stdlib.h>
 

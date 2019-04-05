@@ -3,14 +3,14 @@
 /** \brief Recibe 2 enteros y retorna la suma de ambos
 * \param Recibe el primer entero
 * \param Recibe el segundo entero
-* \return Retorna la suma de ambos enteros
+* \return Retorna la suma de los dos enteros
 */
 
 int funcionSumar(int sumando1, int sumando2)
 {
-    int suma;
-    suma = sumando1 + sumando2;
-    return suma;
+    int resultadoSuma;
+    resultadoSuma = sumando1 + sumando2;
+    return resultadoSuma;
 }
 
 /** \brief Recibe 2 enteros y retorna la resta de ambos
@@ -27,19 +27,24 @@ int funcionResta(int minuendo, int sustraendo)
 }
 
 /** \brief Recibe 2 enteros y retorna el resultado de su division
-* \param Recibe el primer entero que es el dividendo
-* \param Recibe el segundo entero que es el divisor
-* \return Retorna el resultado de la division
+* \param Recibe el primer entero que es el dividendo por valor
+* \param Recibe el segundo entero que es el divisor por valor
+* \param Recibe por referencia la variable donde se va a guardar la division
+* \return Retorna 1 si pudo hacerse correctamente la funcion y 0 si no se pudo
 */
 
-float funcionDivision(int dividendo, int divisor)
+int funcionDivision(int dividendo, int divisor, float* resultadoDivision)
 {
-    float result;
+    int funciono;
     if ( divisor != 0) //Valido que el divisor no sea 0
     {
-        result = (float) dividendo / divisor;
+        *resultadoDivision = (float) dividendo / divisor;
+        funciono = 1;
     }
-    return result;
+    else{
+        funciono = 0;
+    }
+    return funciono;
 }
 
 /** \brief Recibe 2 enteros y retorna su producto
@@ -57,26 +62,30 @@ int funcionMultiplcacion (int factor1, int factor2)
 
 /** \brief Recibe 1 entero y retorna su factorial
 * \param Recibe el entero con el que se va a operar
-* \return Retorna el factorial del entero recibido
+* \param Recibe por referencia la variable donde se va a guardar el resultado
+* \return Retorna 1 si pudo hacerse correctamente la funcion y 0 si no se pudo
 */
 
-double funcionFactorial(int n)
+double funcionFactorial(int n, double* factorial)
 {
-    double resultado = 1;
+    *factorial = 1;
+    int resultado;
     if (n == 0)  //Cuando el entero recibido es 0 el resultado va a ser 1.
     {
+        *factorial = 1;
         resultado = 1;
     }
     else if (n>0)
     {
         for (int i = 1; i <= n ; i++)
         {
-            resultado *= i;
+            *factorial *= i;
+            resultado = 1;
         }
     }
     else   //Cuando el entero es negativo informo con un "-1" que no pudo realizarce el factorial
     {
-        resultado = -1;
+        resultado = 0;
     }
 
     return resultado;

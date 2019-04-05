@@ -12,7 +12,7 @@ int funcionSumar(int sumando1, int sumando2);
 * \return Retorna la resta de los dos enteros
 */
 
-int funcionResta (int minuendo, int sustraendo);
+int funcionResta(int minuendo, int sustraendo);
 
 /** \brief Recibe 2 enteros y retorna el resultado de su division
 * \param Recibe el primer entero que es el dividendo
@@ -20,7 +20,7 @@ int funcionResta (int minuendo, int sustraendo);
 * \return Retorna el resultado de la division
 */
 
-float funcionDivision (int dividendo, int divisor);
+int funcionDivision(int dividendo, int divisor, float* resultadoDivision);
 
 /** \brief Recibe 2 enteros y retorna su producto
 * \param Recibe el primer entero que es el primer Factor
@@ -35,4 +35,4 @@ int funcionMultiplcacion (int factor1, int factor2);
 * \return Retorna el factorial del entero recibido
 */
 
-double funcionFactorial(int n);
+double funcionFactorial(int n, double* factorial);

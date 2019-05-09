@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1556749754 source:e:\trabajopractico2\disconsi.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1556748516 e:\trabajopractico2\disconsi.h
+
+1557443380 source:e:\trabajopractico2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"disconsi.h"
+	"menu.h"
+	"ArrayEmpleado.h"
+
+1557201502 e:\trabajopractico2\arrayempleado.h
+	<stdio.h>
+
+1557443530 source:e:\trabajopractico2\arrayempleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"menu.h"
+	<ctype.h>
+	"ArrayEmpleado.h"
+	"disconsi.h"
+
+1557190150 source:e:\trabajopractico2\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"disconsi.h"
+	"menu.h"
+
+1557189912 e:\trabajopractico2\menu.h
+	<stdio.h>
+

@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1555877150 source:c:\users\rodri\desktop\abmestructuras\disconsi.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1555877107 c:\users\rodri\desktop\abmestructuras\disconsi.h
+
+1556449451 source:c:\users\rodri\desktop\abmestructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1556749754 source:e:\abmestructuras\disconsi.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1556748516 e:\abmestructuras\disconsi.h
+
+1556750218 source:e:\abmestructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"disconsi.h"
+

@@ -2,7 +2,7 @@
 
 struct
 {
- int legajo;
+ int id;
  char nombre[51];
  char apellido[51];
  float sueldo;
@@ -17,6 +17,8 @@ void mostrarEmpleado(eEmpleado emp);
 void mostrarEmpleados(eEmpleado vec[], int tam);
 
 int altaEmpleado(eEmpleado vec[], int tam, int* legajo);
+
+int hayEmpleadoParaMostrar(eEmpleado vec[], int tam);
 
 void modificarEmpleado(eEmpleado vec[], int tam);
 

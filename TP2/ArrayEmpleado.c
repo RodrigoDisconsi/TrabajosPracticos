@@ -6,20 +6,20 @@
 #include "ArrayEmpleado.h"
 #include "disconsi.h"
 
-void inicializarEmpleados(eEmpleado vec[], int tam)
+void inicializarEmpleados(eEmpleado empleados[], int tam)
 {
         for(int i = 0; i < tam ; i++)
         {
-            vec[i].ocupado = 0;
+            empleados[i].ocupado = 0;
         }
 }
 
-int buscarLibre(eEmpleado vec[], int tam)
+int buscarLibre(eEmpleado empleados[], int tam)
 {
     int indice = -1;
          for(int i= 0; i<tam; i++)
          {
-             if(vec[i].ocupado == 0)
+             if(empleados[i].ocupado == 0)
              {
                  indice = i;
                  break;
@@ -28,7 +28,7 @@ int buscarLibre(eEmpleado vec[], int tam)
     return indice;
 }
 
-int altaEmpleado(eEmpleado vec[], int tam, int* legajo)
+int altaEmpleado(eEmpleado empleados[], int tam, int* id)
 {
     int indice;
     int auxiliarSector;
@@ -37,7 +37,7 @@ int altaEmpleado(eEmpleado vec[], int tam, int* legajo)
     char auxApellido[100];
     char auxNombre[100];
     char auxSueldo[20];
-    indice = buscarLibre(vec, tam);
+    indice = buscarLibre(empleados, tam);
     if(indice == -1)
     {
         printf("No hay lugar en el sistema.\n");
@@ -59,7 +59,7 @@ int altaEmpleado(eEmpleado vec[], int tam, int* legajo)
         printf("Ingrese solo letras!!\n\n");
         return 0;
     }
-    if(strlen(auxApellido) >50 )
+    if(strlen(auxApellido) > 50)
     {
         printf("El apellido es muy largo\n\n");
         return 0;
@@ -77,27 +77,27 @@ int altaEmpleado(eEmpleado vec[], int tam, int* legajo)
         return 0;
     }
     auxiliarSector = atoi(auxSector);
-    if(auxiliarSector < 0 || auxiliarSector > 5)
+    if(auxiliarSector < 1 || auxiliarSector > 5)
     {
         printf("El sector ingresado es invalido.\n\n");
         return 0;
     }
-    *legajo = *legajo + 1;
-    vec[indice].legajo = *legajo;
-    strcpy(vec[indice].nombre, auxNombre);
-    strcpy(vec[indice].apellido, auxApellido);
-    vec[indice].sueldo = auxiliarSueldo;
-    vec[indice].sector = auxiliarSector;
-    vec[indice].ocupado = 1;
+    empleados[indice].id = *id;
+    *id = *id + 1;
+    strcpy(empleados[indice].nombre, auxNombre);
+    strcpy(empleados[indice].apellido, auxApellido);
+    empleados[indice].sueldo = auxiliarSueldo;
+    empleados[indice].sector = auxiliarSector;
+    empleados[indice].ocupado = 1;
     return 1;
 }
 
-int buscarEmpleado(eEmpleado vec[], int tam, int legajo)
+int buscarEmpleado(eEmpleado empleados[], int tam, int id)
 {
     int indice = -1;
     for(int i=0; i < tam; i++)
     {
-        if(vec[i].ocupado == 1 && vec[i].legajo == legajo)
+        if(empleados[i].ocupado == 1 && empleados[i].id == id)
         {
             indice = i;
             break;
@@ -106,24 +106,24 @@ int buscarEmpleado(eEmpleado vec[], int tam, int legajo)
     return indice;
 }
 
-void bajaEmpleado(eEmpleado vec[], int tam){
+void bajaEmpleado(eEmpleado empleados[], int tam){
 
-    int legajo;
+    int id;
     char confirma;
     int esta;
-    legajo = getInt("Ingrese un legajo: ");
-    esta = buscarEmpleado(vec, tam, legajo);
+    id = getInt("Ingrese un id: ");
+    esta = buscarEmpleado(empleados, tam, id);
     if( esta == -1)
     {
-        printf("\nEl legajo %d no esta registrado en el sistema\n", legajo);
+        printf("\nEl id %d no esta registrado en el sistema\n", id);
     }
     else{
-        mostrarEmpleado(vec[esta]);
+        mostrarEmpleado(empleados[esta]);
         confirma = tolower(getChar("\nConfirma la eliminiacion? s/n: "));
 
         if(confirma == 's')
         {
-            vec[esta].ocupado = 0;
+            empleados[esta].ocupado = 0;
             printf("Baja empleado exitosa!!\n");
         }
         else{
@@ -133,33 +133,27 @@ void bajaEmpleado(eEmpleado vec[], int tam){
     }
 }
 
-void mostrarEmpleado(eEmpleado emp)
+void mostrarEmpleado(eEmpleado empleados)
 {
-    printf("%d        %d     %10s       %10s        %.2f\n", emp.legajo, emp.sector, emp.nombre, emp.apellido, emp.sueldo);
+    printf("%d        %d     %10s       %10s        %.2f\n", empleados.id, empleados.sector, empleados.nombre, empleados.apellido, empleados.sueldo);
 }
 
-void mostrarEmpleados(eEmpleado vec[], int tam)
+void mostrarEmpleados(eEmpleado empleados[], int tam)
 {
-    int contador = 0;
     system("cls");
     printf("Legajo     Sector      Nombre         Apellido        Sueldo\n");
     printf("------     ------      ------         --------        ------\n");
     for(int i=0; i < tam; i++)
     {
-        if(vec[i].ocupado == 1)
+        if(empleados[i].ocupado == 1)
         {
-            mostrarEmpleado(vec[i]);
-            contador++;
+            mostrarEmpleado(empleados[i]);
         }
     }
     printf("\n\n");
-    if( contador == 0)
-    {
-        printf("\nNo hay empleados que mostrar\n");
-    }
 }
 
-void ordenarEmpleados(eEmpleado vec[], int tam, int order)
+void ordenarEmpleados(eEmpleado empleados[], int tam, int order)
 {
     eEmpleado auxEmpleado;
     for (int i=0; i<tam-1; i++)
@@ -168,38 +162,38 @@ void ordenarEmpleados(eEmpleado vec[], int tam, int order)
             {
             if(!order)
             {
-                if(vec[j-1].ocupado == 1 && vec[i].sector < vec[j].sector)
+                if(empleados[j-1].ocupado == 1 && empleados[i].sector < empleados[j].sector)
                 {
-                    auxEmpleado = vec[i];
-                    vec[i] = vec[j];
-                    vec[j] = auxEmpleado;
+                    auxEmpleado = empleados[i];
+                    empleados[i] = empleados[j];
+                    empleados[j] = auxEmpleado;
                 }
-                if(vec[j-1].ocupado == 1 && vec[i].sector == vec[j].sector)
+                if(empleados[j-1].ocupado == 1 && empleados[i].sector == empleados[j].sector)
                 {
-                    if(strcmp(vec[i].apellido, vec[j].apellido) < 0)
+                    if(strcmp(empleados[i].apellido, empleados[j].apellido) < 0)
                     {
-                        auxEmpleado = vec[i];
-                        vec[i] = vec[j];
-                        vec[j] = auxEmpleado;
+                        auxEmpleado = empleados[i];
+                        empleados[i] = empleados[j];
+                        empleados[j] = auxEmpleado;
                     }
                 }
 
             }
             else
             {
-                if(vec[j-1].ocupado == 1 && vec[i].sector > vec[j].sector)
+                if(empleados[j-1].ocupado == 1 && empleados[i].sector > empleados[j].sector)
                 {
-                    auxEmpleado = vec[i];
-                    vec[i] = vec[j];
-                    vec[j] = auxEmpleado;
+                    auxEmpleado = empleados[i];
+                    empleados[i] = empleados[j];
+                    empleados[j] = auxEmpleado;
                 }
-                if(vec[j-1].ocupado == 1 && vec[i].sector == vec[j].sector)
+                if(empleados[j-1].ocupado == 1 && empleados[i].sector == empleados[j].sector)
                 {
-                    if(strcmp(vec[i].apellido, vec[j].apellido) > 0)
+                    if(strcmp(empleados[i].apellido, empleados[j].apellido) > 0)
                     {
-                        auxEmpleado = vec[i];
-                        vec[i] = vec[j];
-                        vec[j] = auxEmpleado;
+                        auxEmpleado = empleados[i];
+                        empleados[i] = empleados[j];
+                        empleados[j] = auxEmpleado;
                     }
                 }
             }
@@ -207,62 +201,68 @@ void ordenarEmpleados(eEmpleado vec[], int tam, int order)
         }
 }
 
-void totalPromedioSalarios(eEmpleado vec[], int tam)
+void totalPromedioSalarios(eEmpleado empleados[], int tam)
 {
     int sueldoMayorAProm = 0;
     int contador = 0;
+    int flag = 0;
     float acumulador = 0;
     float promedio;
         for(int i=0; i<tam; i++)
         {
-            if(vec[i].ocupado == 1)
+            if(empleados[i].ocupado == 1)
             {
-                acumulador += vec[i].sueldo;
+                acumulador += empleados[i].sueldo;
                 contador ++;
+                flag ++;
             }
         }
         promedio = (float) acumulador / contador;
         for(int i=0; i<tam; i++)
         {
-            if(vec[i].sueldo > promedio)
+            if(empleados[i].sueldo > promedio)
             {
                 sueldoMayorAProm ++;
             }
         }
-    printf("El total de los salarios es %.1f, el promedio %.2f y la cantidad que superan el promedio %d\n\n", acumulador, promedio, sueldoMayorAProm);
+        if(flag)
+            printf("El total de los salarios es %.1f, el promedio %.2f y la cantidad que superan el promedio %d\n\n", acumulador, promedio, sueldoMayorAProm);
 }
 
-void modificarEmpleado(eEmpleado vec[], int tam)
+void modificarEmpleado(eEmpleado empleados[], int tam)
 {
-    int legajo, indice, auxSector;
+    int id, indice, auxSector;
     char auxCharSector[5];
     char auxCharSalario[10];
     char confirma;
     char auxNameOrLastname[51];
     float auxSalario;
-    legajo = getInt("Ingrese un legajo: ");
-    indice = buscarEmpleado(vec, tam, legajo);
+    id = getInt("Ingrese un ID: ");
+    indice = buscarEmpleado(empleados, tam, id);
     if(indice == -1)
     {
-        printf("El legajo no se encuentra en el sistema\n");
+        printf("El ID no se encuentra en el sistema\n");
     }
     else
     {
-        mostrarEmpleado(vec[indice]);
-        system("pause");
+        system("cls");
+        printf("Legajo     Sector      Nombre         Apellido        Sueldo\n");
+        printf("------     ------      ------         --------        ------\n");
+        mostrarEmpleado(empleados[indice]);
+        printf("\n\n");
         switch(menuModificar())
         {
         case 1:
-            if(!getStringLetras("Ingrese el nuevo nombre: ", auxNameOrLastname) || strlen(auxNameOrLastname) > strlen(vec[indice].nombre))
+            if(!getStringLetras("Ingrese el nuevo nombre: ", auxNameOrLastname) || strlen(auxNameOrLastname) > strlen(empleados[indice].nombre))
             {
                 printf("El nombre es muy largo o contiene caracteres invalidos\n\n");
                 break;
             }
             printf("El nombre que ingreso fue %s \n", auxNameOrLastname);
-            confirma = getChar("Desea cambiar el nombre? s/n");
+            confirma = getChar("Desea cambiar el nombre? s/n: ");
             if(confirma == 's')
             {
-                strcpy(vec[indice].nombre, auxNameOrLastname);
+                strcpy(empleados[indice].nombre, auxNameOrLastname);
                 printf("Modificacion exitosa!\n\n");
                 break;
             }
@@ -272,7 +272,7 @@ void modificarEmpleado(eEmpleado vec[], int tam)
                 break;
             }
         case 2:
-            if(!getStringLetras("Ingrese el nuevo apellido: ", auxNameOrLastname) || strlen(auxNameOrLastname) > strlen(vec[indice].apellido))
+            if(!getStringLetras("Ingrese el nuevo apellido: ", auxNameOrLastname) || strlen(auxNameOrLastname) > strlen(empleados[indice].apellido))
             {
                 printf("El apellido es muy largo o contiene caracteres invalidos\n\n");
                 break;
@@ -281,7 +281,7 @@ void modificarEmpleado(eEmpleado vec[], int tam)
             confirma = tolower(getChar("Desea cambiar el sector? s/n: "));
             if(confirma == 's')
             {
-                strcpy(vec[indice].apellido, auxNameOrLastname);
+                strcpy(empleados[indice].apellido, auxNameOrLastname);
                 printf("Modificacion exitosa!\n\n");
                 break;
             }
@@ -291,7 +291,7 @@ void modificarEmpleado(eEmpleado vec[], int tam)
                 break;
             }
         case 3:
-            if(!getStringNumeros("Ingrese un nuevo sueldo", auxCharSalario))
+            if(!getStringNumeros("Ingrese un nuevo sueldo: ", auxCharSalario))
             {
                 printf("Error: Ingrese solo numeros\n\n");
                 break;
@@ -301,7 +301,7 @@ void modificarEmpleado(eEmpleado vec[], int tam)
             confirma = tolower(getChar("Desea cambiar el sector? s/n: "));
             if(confirma == 's')
             {
-                vec[indice].sueldo = auxSalario;
+                empleados[indice].sueldo = auxSalario;
                 printf("Modificacion exitosa!\n\n");
                 break;
             }
@@ -326,7 +326,7 @@ void modificarEmpleado(eEmpleado vec[], int tam)
             confirma = tolower(getChar("Desea cambiar el sector? s/n: "));
             if(confirma == 's')
             {
-                vec[indice].sector = auxSector;
+                empleados[indice].sector = auxSector;
                 printf("Modificacion exitosa!\n\n");
                 break;
             }
@@ -345,4 +345,16 @@ void modificarEmpleado(eEmpleado vec[], int tam)
     }
 }
 
-
+int hayEmpleadoParaMostrar(eEmpleado empleados[], int tam)
+{
+    int indice = -1;
+         for(int i= 0; i<tam; i++)
+         {
+             if(empleados[i].ocupado == 1)
+             {
+                 indice = i;
+                 break;
+             }
+         }
+    return indice;
+}

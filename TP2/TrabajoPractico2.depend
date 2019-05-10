@@ -7,7 +7,7 @@
 
 1556748516 e:\trabajopractico2\disconsi.h
 
-1557444512 source:e:\trabajopractico2\main.c
+1557452702 source:e:\trabajopractico2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -15,10 +15,10 @@
 	"menu.h"
 	"ArrayEmpleado.h"
 
-1557201502 e:\trabajopractico2\arrayempleado.h
+1557452702 e:\trabajopractico2\arrayempleado.h
 	<stdio.h>
 
-1557443530 source:e:\trabajopractico2\arrayempleado.c
+1557452702 source:e:\trabajopractico2\arrayempleado.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -27,7 +27,7 @@
 	"ArrayEmpleado.h"
 	"disconsi.h"
 
-1557190150 source:e:\trabajopractico2\menu.c
+1557451776 source:e:\trabajopractico2\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"disconsi.h"

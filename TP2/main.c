@@ -10,10 +10,8 @@ int main()
 {
     char seguir = 's';
     char confirma;
-    int flag = 0;
     int todoOk;
-    int legajo;
-    legajo = 10000;
+    int id = 10000;
     eEmpleado lista[TAM];
     inicializarEmpleados(lista, TAM);
     do
@@ -21,16 +19,15 @@ int main()
         switch(menuPrincipal())
         {
         case 1:
-            todoOk = altaEmpleado(lista, TAM, &legajo);
+            todoOk = altaEmpleado(lista, TAM, &id);
             if(todoOk)
-            printf("Alta empleado exitosa!!\n\n");
-            flag = 1;
+                printf("Alta empleado exitosa!!\n\n");
             system("pause");
             break;
         case 2:
-            if(!flag)
+            if(hayEmpleadoParaMostrar(lista, TAM) == -1)
             {
-                printf("Realice la carga de algun empleado.\n\n");
+                printf("No hay empleados cargados.\n\n");
                 system("pause");
                 break;
             }
@@ -38,9 +35,9 @@ int main()
             system("pause");
             break;
         case 3:
-            if(!flag)
+            if(hayEmpleadoParaMostrar(lista, TAM) == -1)
             {
-                printf("Realice la carga de algun empleado.\n\n");
+                printf("No hay empleados cargados.\n\n");
                 system("pause");
                 break;
             }
@@ -48,9 +45,9 @@ int main()
             system("pause");
             break;
         case 4:
-            if(!flag)
+            if(hayEmpleadoParaMostrar(lista, TAM) == -1)
             {
-                printf("Realice la carga de algun empleado.\n\n");
+                printf("No hay empleados cargados.\n\n");
                 system("pause");
                 break;
             }

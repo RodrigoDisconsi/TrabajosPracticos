@@ -22,8 +22,6 @@ int menuPrincipal()
 int menuModificar()
 {
    int opcion;
-    system("cls");
-    printf("  *** Administrar Empleados ***\n\n");
     printf("1- Cambiar nombre\n");
     printf("2- Cambiar apellido\n");
     printf("3- Cambiar salario\n");

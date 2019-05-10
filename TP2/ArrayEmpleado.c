@@ -135,14 +135,14 @@ void bajaEmpleado(eEmpleado empleados[], int tam){
 
 void mostrarEmpleado(eEmpleado empleados)
 {
-    printf("%d        %d     %10s       %10s        %.2f\n", empleados.id, empleados.sector, empleados.nombre, empleados.apellido, empleados.sueldo);
+    printf("%d        %2d           %-10s      %-10s        %.2f\n", empleados.id, empleados.sector, empleados.nombre, empleados.apellido, empleados.sueldo);
 }
 
 void mostrarEmpleados(eEmpleado empleados[], int tam)
 {
     system("cls");
-    printf("Legajo     Sector      Nombre         Apellido        Sueldo\n");
-    printf("------     ------      ------         --------        ------\n");
+    printf("Legajo     Sector        Nombre          Apellido          Sueldo\n");
+    printf("------     ------        ------          --------          ------\n");
     for(int i=0; i < tam; i++)
     {
         if(empleados[i].ocupado == 1)
@@ -246,8 +246,8 @@ void modificarEmpleado(eEmpleado empleados[], int tam)
     else
     {
         system("cls");
-        printf("Legajo     Sector      Nombre         Apellido        Sueldo\n");
-        printf("------     ------      ------         --------        ------\n");
+        printf("Legajo     Sector        Nombre          Apellido          Sueldo\n");
+        printf("------     ------        ------          --------          ------\n");
         mostrarEmpleado(empleados[indice]);
         printf("\n\n");
         switch(menuModificar())

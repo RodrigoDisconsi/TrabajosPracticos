@@ -11,7 +11,7 @@ int main()
     char seguir = 's';
     char confirma;
     int todoOk;
-    int id = 10000;
+    int id = 1000;
     eEmpleado lista[TAM];
     inicializarEmpleados(lista, TAM);
     do

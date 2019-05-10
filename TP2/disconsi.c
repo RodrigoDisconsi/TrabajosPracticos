@@ -3,6 +3,11 @@
 #include <string.h>
 #include "disconsi.h"
 
+/** \brief Soicita un número de tipo float al usuario y devuelve el resultado
+ * \param mensaje Es el mensaje a ser mostrado.
+ * \return El número de tipo float ingresado por el usuario.
+ */
+
 
 float getFloat(char mensaje[])
 {
@@ -12,6 +17,11 @@ float getFloat(char mensaje[])
     return auxiliar;
 }
 
+/** \brief Soicita un número de tipo int al usuario y devuelve el resultado
+ * \param mensaje Es el mensaje a ser mostrado.
+ * \return El número de tipo int ingresado por el usuario.
+ */
+
 int getInt(char mensaje[])
 {
     int auxiliar;
@@ -19,6 +29,11 @@ int getInt(char mensaje[])
     scanf("%d", &auxiliar);
     return auxiliar;
 }
+
+/** \brief Soicita un caracter al usuario y devuelve el resultado
+ * \param mensaje Es el mensaje a ser mostrado.
+ * \return El caracter ingresado por el usuario.
+ */
 
 char getChar(char mensaje[])
 {
@@ -28,6 +43,12 @@ char getChar(char mensaje[])
     scanf("%c", &auxiliar);
     return auxiliar;
 }
+
+/** \brief Verifica si el valor recibido es númerico
+ * \param str Array con la cadena analizada
+ * \return 1 si es númerico y 0 si no lo es
+ */
+
 
 int esNumerico(char str[])
 {
@@ -40,6 +61,11 @@ int esNumerico(char str[])
     }
     return 1;
 }
+
+/** \brief Verifica si el valor recibido es solo letras
+ * \param str Array con la cadena analizada
+ * \return 1 si es solo letras y 0 si no lo es
+ */
 
 int esSoloLetras (char str[])
 {
@@ -55,6 +81,11 @@ int esSoloLetras (char str[])
     return 1;
 }
 
+/** \brief Verifica si el valor recibido es solo letras y numeros
+ * \param str Array con la cadena analizada
+ * \return 1 si es alfa-númerico  y 0 si no lo es
+ */
+
 int esAlfaNumerico(char str[])
 {
     int i = 0;
@@ -68,6 +99,11 @@ int esAlfaNumerico(char str[])
     }
     return 1;
 }
+
+/** \brief Verifica si el valor recibido es numeros, + y -
+ * \param str Array con la cadena analizada
+ * \return 1 si es del tipo teléfono y 0 si no lo es
+ */
 
 int esTelefono(char str[])
 {
@@ -84,18 +120,31 @@ int esTelefono(char str[])
             contadorGuiones ++;
         }
     }
-    if(contadorGuiones <= 1)
+    if(contadorGuiones <= 1)  //Debe tener un guion
     {
         return 1;
     }
     return 0;
 }
 
+/** \brief Solicita un texto al usuario y lo devuelve
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param input Array donde se cargará el texto ingresado
+ * \return No retorna nada.
+ */
+
+
 void getString(char mensaje[], char input[])
 {
     printf(mensaje);
     scanf("%s", input);
 }
+
+/** \brief Solicita un texto al usuario de solo letras y lo devuelve
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param input Array donde se cargará el texto ingresado
+ * \return 1 si es solo letras y 0 si no lo es.
+ */
 
 int getStringLetras(char mensaje[], char input[])
 {
@@ -108,6 +157,12 @@ int getStringLetras(char mensaje[], char input[])
     }
     return 0;
 }
+
+/** \brief Solicita un texto al usuario de solo números y lo devuelve
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param input Array donde se cargará el texto ingresado
+ * \return 1 si es solo números y 0 si no lo es.
+ */
 
 int getStringNumeros(char mensaje[], char input[])
 {

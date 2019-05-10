@@ -4,6 +4,11 @@
 #include "menu.h"
 
 
+/** \brief Es el menu de opciones principal.
+ * \return Retorna la opción elegida.
+ */
+
+
 int menuPrincipal()
 {
     int opcion;
@@ -18,6 +23,10 @@ int menuPrincipal()
     printf("\n\n");
     return opcion;
 }
+
+/** \brief Es el menu de opciones de la opción modificar.
+ * \return Retorna la opción elegida.
+ */
 
 int menuModificar()
 {

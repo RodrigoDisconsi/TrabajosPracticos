@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1556749754 source:e:\trabajopractico2\disconsi.c
+1557514476 source:e:\trabajopractico2\disconsi.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -7,18 +7,20 @@
 
 1556748516 e:\trabajopractico2\disconsi.h
 
-1557509250 source:e:\trabajopractico2\main.c
+1557515616 source:e:\trabajopractico2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
+	<string.h>
 	"disconsi.h"
 	"menu.h"
 	"ArrayEmpleado.h"
 
-1557452702 e:\trabajopractico2\arrayempleado.h
+1557515436 e:\trabajopractico2\arrayempleado.h
 	<stdio.h>
+	<string.h>
 
-1557509726 source:e:\trabajopractico2\arrayempleado.c
+1557515792 source:e:\trabajopractico2\arrayempleado.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -27,7 +29,7 @@
 	"ArrayEmpleado.h"
 	"disconsi.h"
 
-1557451776 source:e:\trabajopractico2\menu.c
+1557514616 source:e:\trabajopractico2\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"disconsi.h"

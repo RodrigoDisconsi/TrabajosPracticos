@@ -27,6 +27,7 @@ int main()
 {
     int isOk;
     int id = 1001;
+    int flag  = 0;
     char seguir = 's';
     LinkedList* listaEmpleados = ll_newLinkedList();
         do{
@@ -34,29 +35,51 @@ int main()
         {
             case 1:
                 if(controller_loadFromText("data.csv",listaEmpleados))
+                {
                     printf("El archivo se leyo correctamente!\n");
+                    flag = 1;
+                }
                 else
                     printf("Error al leer el archivo!\n");
                 system("Pause");
                 break;
             case 2:
                 if(controller_loadFromBinary("data.bin",listaEmpleados))
+                {
                     printf("El archivo se leyo correctamente!\n");
+                    flag = 1;
+                }
                 else
                     printf("Error al leer el archivo!\n");
                 system("Pause");
                 break;
             case 3:
                 if(controller_addEmployee(listaEmpleados, &id))
+                {
                     printf("Alta empleado exitosa!!\n");
+                    flag = 1;
+                }
+
                 system("Pause");
                 break;
             case 4:
+                if(flag == 0)
+                {
+                    printf("No hay empleados en el sistema.\n");
+                    system("Pause");
+                    break;
+                }
                 if(!controller_editEmployee(listaEmpleados))
                     printf("No se pudo completar la operacion.\n\n");
                 system("Pause");
                 break;
             case 5:
+                if(flag == 0)
+                {
+                    printf("No hay empleados en el sistema.\n");
+                    system("Pause");
+                    break;
+                }
                 if(!controller_removeEmployee(listaEmpleados))
                     printf("No se pudo completar la operacion.\n\n");
                 system("Pause");
@@ -70,11 +93,22 @@ int main()
                 system("Pause");
                 break;
             case 7:
+                if(flag == 0)
+                {
+                    printf("No hay empleados en el sistema.\n");
+                    system("Pause");
+                    break;
+                }
                 if(!ordenarEmpleados(listaEmpleados))
                     printf("No se pudo ordenar.\n");
                 system("Pause");
                 break;
             case 8:
+                if(flag == 0)
+                {
+                    printf("No hay empleados en el sistema.\n");
+                    break;
+                }
                 if(controller_saveAsText("data.csv",listaEmpleados))
                     printf("Se guardo correctamente!\n");
                 else
@@ -82,6 +116,11 @@ int main()
                 system("Pause");
                 break;
             case 9:
+                if(flag == 0)
+                {
+                    printf("No hay empleados en el sistema.\n");
+                    break;
+                }
                 if(controller_saveAsBinary("data.bin",listaEmpleados))
                     printf("Se guardo correctamente!\n");
                 else

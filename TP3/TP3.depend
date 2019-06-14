@@ -175,3 +175,64 @@
 
 1560100644 c:\users\rodri\desktop\nueva carpeta\tp3\win_64\parser.h
 
+1560481324 source:f:\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"disconsi.h"
+	"menu.h"
+
+1560037974 f:\tp3\win_64\linkedlist.h
+
+1560481198 f:\tp3\win_64\employee.h
+	"LinkedList.h"
+
+1560100644 f:\tp3\win_64\parser.h
+
+1557770564 f:\tp3\win_64\disconsi.h
+
+1560274552 f:\tp3\win_64\menu.h
+	<stdio.h>
+
+1557771128 source:f:\tp3\win_64\disconsi.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1560552550 source:f:\tp3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"disconsi.h"
+	"menu.h"
+
+1560481318 f:\tp3\win_64\controller.h
+
+1560274552 source:f:\tp3\win_64\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"disconsi.h"
+	"menu.h"
+
+1560279972 source:f:\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560552512 source:f:\tp3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"menu.h"
+	"Employee.h"
+	"disconsi.h"
+

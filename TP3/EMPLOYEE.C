@@ -6,6 +6,13 @@
 #include "Employee.h"
 #include "disconsi.h"
 
+/** \brief Carga el id de un empleado
+ * \param this Puntero employee a cargar
+ * \param id Entero ID que se va a guardar
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
+
+
 int employee_setId(Employee* this,int id)
 {
      int todoOK = 0;
@@ -17,7 +24,11 @@ int employee_setId(Employee* this,int id)
      return todoOK;
 }
 
-
+/** \brief Obtiene el id de un empleado
+ * \param this Puntero employee
+ * \param id Puntero a entero donde se va a guardar
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
 
 
 int employee_getId(Employee* this,int* id)
@@ -31,6 +42,12 @@ int employee_getId(Employee* this,int* id)
     return todoOK;
 }
 
+/** \brief Carga el nombre de un empleado
+ * \param this Puntero employee
+ * \param nombre Puntero a char
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
+
 int employee_setNombre(Employee* this,char* nombre)
 {
     int todoOK = 0;
@@ -42,6 +59,11 @@ int employee_setNombre(Employee* this,char* nombre)
     return todoOK;
 }
 
+/** \brief Obtiene el nombre de un empleado
+ * \param this Puntero employee
+ * \param nombre Puntero a char
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
 
 int employee_getNombre(Employee* this,char* nombre)
 {
@@ -54,6 +76,12 @@ int employee_getNombre(Employee* this,char* nombre)
     return todoOK;
 }
 
+/** \brief Carga el HorasTrabajadas de un empleado
+ * \param this Puntero employee
+ * \param horasTrabajadas Entero
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
+
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 {
     int todoOK = 0;
@@ -64,6 +92,12 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
     }
     return todoOK;
 }
+
+/** \brief Obtiene el HorasTrabajadas de un empleado
+ * \param this Puntero employee
+ * \param horasTrabajadas Puntero a entero
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
 
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
@@ -76,6 +110,12 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
     return todoOK;
 }
 
+/** \brief Carga el sueldo de un empleado
+ * \param this Puntero employee
+ * \param sueldo Entero
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
+
 int employee_setSueldo(Employee* this,int sueldo)
 {
     int todoOK = 0;
@@ -86,6 +126,13 @@ int employee_setSueldo(Employee* this,int sueldo)
     }
     return todoOK;
 }
+
+/** \brief Obtiene el sueldo de un empleado
+ * \param this Puntero employee
+ * \param sueldo Puntero a entero
+ * \return retorna 1 si tuvo exito 0 si no lo tuvo
+ */
+
 int employee_getSueldo(Employee* this,int* sueldo)
 {
     int todoOK = 0;
@@ -96,6 +143,12 @@ int employee_getSueldo(Employee* this,int* sueldo)
     }
     return todoOK;
 }
+
+/** \brief Guarda espacio en memoria dinamica para un empleado y lo inicializa en 0
+ * \param void
+ * \return retorna un puntero a Employee si tuvo exito y NULL si no lo tuvo
+ */
+
 
 Employee* employee_new()
 {
@@ -109,6 +162,14 @@ Employee* employee_new()
     }
     return this;
 }
+
+/** \brief Guarda espacio en memoria dinamica para un empleado y lo inicializa con los parametros pasados
+ * \param idStr Puntero a char
+ * \param nombreStr Puntero a char
+ * \param horasTrabajadasStr Puntero a char
+ * \param sueldoStr Puntero a char
+ * \return retorna un puntero a Employee si tuvo exito y NULL si no lo tuvo
+ */
 
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr)
 {
@@ -126,6 +187,12 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     return this;
 }
 
+/** \brief Muestra un empleado
+ * \param empleado Puntero a Employee
+ * \return retorna 0 si es NULL y 1 si tuvo exito.
+ */
+
+
 int mostrarEmpleado(Employee* empleado)
 {
     int isOk = 0;
@@ -136,6 +203,12 @@ int mostrarEmpleado(Employee* empleado)
     }
     return isOk;
 }
+
+/** \brief Listar empleados
+ * \param pArrayListEmployee LinkedList*
+ * \param size Entero tamaño de la linkedlist
+ * \return int 0 si el size es negativo, 0 o si la linkedlist es NULL y 1 si tuvo exito.
+ */
 
 int mostrarEmpleados(LinkedList* empleados, int size)
 {
@@ -156,6 +229,11 @@ int mostrarEmpleados(LinkedList* empleados, int size)
     return isOk;
 }
 
+/** \brief Ordenar 2 empleados por sueldo
+ * \param emp1 Puntero a void
+ * \param emp2 Puntero a void
+ * \return 1 si el primero es mayor -1 si el primero es menor 0 si son iguales.
+ */
 
 int ordenarXSueldo(void* emp1, void* emp2)
 {
@@ -183,6 +261,12 @@ int ordenarXSueldo(void* emp1, void* emp2)
     return retorno;
 }
 
+/** \brief Ordena 2 empleados por horas
+ * \param emp1 Puntero a void
+ * \param emp2 Puntero a void
+ * \return 1 si el primero es mayor -1 si el primero es menor 0 si son iguales.
+ */
+
 int ordenarXHoras( void* emp1, void* emp2){
 
     int retorno = 0;
@@ -208,6 +292,12 @@ int ordenarXHoras( void* emp1, void* emp2){
 
     return retorno;
 }
+
+/** \brief Ordena 2 empleados por nombre
+ * \param emp1 Puntero a void
+ * \param emp2 Puntero a void
+ * \return 1 si el primero es mayor -1 si el primero es menor 0 si son iguales.
+ */
 
 int ordenarXNombre( void* emp1, void* emp2){
 
@@ -235,6 +325,12 @@ int ordenarXNombre( void* emp1, void* emp2){
     return retorno;
 }
 
+/** \brief Ordena 2 empleados por id
+ * \param emp1 Puntero a void
+ * \param emp2 Puntero a void
+ * \return 1 si el primero es mayor -1 si el primero es menor 0 si son iguales.
+ */
+
 int ordenarXId( void* emp1, void* emp2){
 
     int retorno = 0;
@@ -260,6 +356,13 @@ int ordenarXId( void* emp1, void* emp2){
 
     return retorno;
 }
+
+/** \brief Alta de empleados
+ * \param pArrayListEmployee LinkedList*
+  * \param id Puntero a id para que sea autoincremental
+ * \return retorna 0 si hubo algun problema y 1 si el alta fue exitosa.
+ *
+ */
 
 
 int altaEmployee(LinkedList* pArrayListEmployee, int* id)
@@ -310,6 +413,12 @@ int altaEmployee(LinkedList* pArrayListEmployee, int* id)
 
     return todoOk;
 }
+
+/** \brief Modificar datos de empleado
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 
 int modificarEmployee(LinkedList* pArrayListEmployee)
 {
@@ -458,6 +567,13 @@ int modificarEmployee(LinkedList* pArrayListEmployee)
     return isOk;
 }
 
+/** \brief Recibe por parametro e id y lo busca en la linkedlist
+ * \param pArrayListEmployee Puntero a linkedlist
+ * \param id Entero
+ * \return retorna -1 si no lo encuentra y sino retorna el indice
+ */
+
+
 
 int buscarXId(LinkedList* pArrayListEmployee, int id)
 {
@@ -478,6 +594,13 @@ int buscarXId(LinkedList* pArrayListEmployee, int id)
     }
     return indice;
 }
+
+/** \brief Baja empleado
+ * \param pArrayListEmployee Puntero a linkedlist
+ * \return 0 si hubo un problema 1 si no lo hay.
+ *
+ */
+
 
 int employee_delete(LinkedList* pArrayListEmployee)
 {
@@ -513,6 +636,12 @@ int employee_delete(LinkedList* pArrayListEmployee)
         printf("Baja cancelada!!\n");
     return isOk;
 }
+
+/** \brief Ordenar los empleados de la linkedlist
+ * \param pArrayListEmployee Puntero a linkedlist
+ * \return retorna 0 si hubo algun problema y 1 si no lo hay.
+ */
+
 
 int ordenarEmpleados(LinkedList* pArrayListEmployee)
 {

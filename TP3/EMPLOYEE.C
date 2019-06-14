@@ -262,9 +262,9 @@ int ordenarXId( void* emp1, void* emp2){
 }
 
 
-int altaEmployee(LinkedList* pArrayListEmployee)
+int altaEmployee(LinkedList* pArrayListEmployee, int* id)
 {
-    char id[11];
+    char idAux[11];
     char nombre[21];
     char horasTrabajadas[11];
     char sueldo[11];
@@ -272,16 +272,17 @@ int altaEmployee(LinkedList* pArrayListEmployee)
     Employee* emp;
     if(pArrayListEmployee != NULL)
     {
-        if(!getStringNumeros("Ingrese el id: ", id))
+       /* if(!getStringNumeros("Ingrese el id: ", id))
         {
             printf("Ingrese solo numeros!!\n");
             return todoOk;
         }
-        if(atoi(id) < 0)
+        if(atoi(id) < 1000)             //Comente esto ya que hice el ID autoincremental. Me parecia mas practico ya que en el TP dice que va dirigido a una "empresa"
         {
-            printf("Ingrese un ID positivo\n");
+            printf("Ingrese un ID valido\n");
             return todoOk;
-        }
+        }*/
+        sprintf(idAux, "%d", *id);
         if(!getStringLetras("Ingrese nombre: ", nombre))
         {
             printf("Ingrese solo letras!!\n");
@@ -298,12 +299,13 @@ int altaEmployee(LinkedList* pArrayListEmployee)
             printf("Ingrese solo numeros!!\n");
             return todoOk;
         }
-        emp = employee_newParametros(id, nombre, horasTrabajadas, sueldo);
+        emp = employee_newParametros(idAux, nombre, horasTrabajadas, sueldo);
         if(emp != NULL)
         {
             if(ll_add(pArrayListEmployee, emp)== 0)
                 todoOk = 1;
         }
+        *id = *id +1;
     }
 
     return todoOk;

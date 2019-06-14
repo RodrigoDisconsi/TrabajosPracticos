@@ -28,7 +28,7 @@ int employee_getSueldo(Employee* this,int* sueldo);
 int mostrarEmpleado(Employee* empleado);
 int mostrarEmpleados(LinkedList* empleados, int size);
 int ordenarXSueldo(void* emp1, void* emp2);
-int altaEmployee(LinkedList* pArrayListEmployee);
+int altaEmployee(LinkedList* pArrayListEmployee, int* id);
 int buscarXId(LinkedList* pArrayListEmployee, int id);
 int ordenarEmpleados(LinkedList* pArrayListEmployee);
 int modificarEmployee(LinkedList* pArrayListEmployee);

@@ -26,6 +26,7 @@
 int main()
 {
     int isOk;
+    int id = 1001;
     char seguir = 's';
     LinkedList* listaEmpleados = ll_newLinkedList();
         do{
@@ -46,7 +47,7 @@ int main()
                 system("Pause");
                 break;
             case 3:
-                if(controller_addEmployee(listaEmpleados))
+                if(controller_addEmployee(listaEmpleados, &id))
                     printf("Alta empleado exitosa!!\n");
                 system("Pause");
                 break;
@@ -74,7 +75,7 @@ int main()
                 system("Pause");
                 break;
             case 8:
-                if(controller_saveAsText("data.txt",listaEmpleados))
+                if(controller_saveAsText("data.csv",listaEmpleados))
                     printf("Se guardo correctamente!\n");
                 else
                     printf("Error al guardar el archivo!\n");

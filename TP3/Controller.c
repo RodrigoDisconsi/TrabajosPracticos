@@ -50,12 +50,12 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_addEmployee(LinkedList* pArrayListEmployee)
+int controller_addEmployee(LinkedList* pArrayListEmployee, int* id)
 {
     int isOk = 0;
     if(pArrayListEmployee != NULL)
     {
-        isOk = altaEmployee(pArrayListEmployee);
+       isOk = altaEmployee(pArrayListEmployee, id);
     }
 
     return isOk;
@@ -131,7 +131,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
     int isOk = 0;
-    FILE* pFile = fopen(path, "w");
+    FILE* pFile = fopen(path, "a");
     if(pFile == NULL || path == NULL || pArrayListEmployee == NULL)
         return isOk;
     isOk = parser_saveAsText(pFile, pArrayListEmployee);
@@ -149,7 +149,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
     int isOk = 0;
-    FILE* pFile = fopen(path, "wb");
+    FILE* pFile = fopen(path, "a");
     if(pFile == NULL || path == NULL || pArrayListEmployee == NULL)
         return isOk;
     isOk = parser_saveAsBinary(pFile, pArrayListEmployee);

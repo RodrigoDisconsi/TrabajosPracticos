@@ -54,10 +54,10 @@ int mostrarAutosMarca(eColor* colores, int tamColor, eMarca* marcas, int tamMarc
  */
 
 
-int mostrarTrabajoFecha(eTrabajo* trabajos, int tam, eServicio* servicios, int tamServicios)
+int mostrarAutoFecha(eAuto* autos, int tamAutos, eTrabajo* trabajos, int tamTrabajos, eColor* colores, int tamColor, eMarca* marcas, int tamMarca, eCliente* clientes, int tamCliente)
 {
     int isOk = 0;
-    if(trabajos != NULL && servicios != NULL)
+    if(trabajos != NULL && clientes != NULL && colores != NULL && marcas != NULL && autos != NULL)
     {
         eFecha auxFecha;
         printf("Ingrese fecha: ");
@@ -66,12 +66,16 @@ int mostrarTrabajoFecha(eTrabajo* trabajos, int tam, eServicio* servicios, int t
         {
             printf("\n");
             printf("FECHA: %d/%d/%d\n\n", auxFecha.dia, auxFecha.mes, auxFecha.anio);
-            for(int i=0; i<tam; i++)
+            for(int i = 0; i< tamAutos ; i++)
             {
-                if(compararFechas((trabajos+i)->fecha, auxFecha))
+                for(int j=0; j<tamTrabajos; j++)
                 {
-                    mostrarTrabajo(servicios, tamServicios, trabajos+i);
-                    isOk = 1;
+                    if((trabajos+j)->estado == 1 && (autos+i)->estado == 1 && strcmp((trabajos+j)->patente, (autos+i)->patente) == 0 && compararFechas((trabajos+j)->fecha, auxFecha))
+                    {
+                        mostrarAuto(colores, tamColor, marcas, tamMarca, clientes, tamCliente, (autos+i));
+                        isOk = 1;
+                        break;
+                    }
                 }
             }
         }
@@ -91,6 +95,7 @@ int mostrarTrabajoAuto(eTrabajo* trabajos, int tam, eServicio* servicios, int ta
     char seguir;
     int indice;
     int flag = 0;
+    mostrarAutos(colores, tamColor, marcas, tamMarca, clientes, tamCliente, autos, tamAutos);
     if(!getStringAlfaNumerico("Ingrese la patente: ", patente))
     {
         printf("Ingrese solo numeros o letras!!\n\n");
@@ -140,6 +145,8 @@ int mostrarAutoSinTrabajo(eTrabajo* trabajos, int tamTrabajo, eColor* colores, i
     int flag = 0;
     for(int i = 0; i<tamAutos ; i++)
     {
+        if((autos+i)->estado == 1)
+        {
         for(int j = 0; j<tamTrabajo; j++)
         {
             flag = 0;
@@ -150,10 +157,11 @@ int mostrarAutoSinTrabajo(eTrabajo* trabajos, int tamTrabajo, eColor* colores, i
             }
 
         }
-        if(flag == 0 && (autos+i)->estado == 1)
+        if(flag == 0 )
         {
             mostrarAuto(colores, tamColor, marcas, tamMarca, clientes, tamCliente, (autos+i));
             isOk = 1;
+        }
         }
     }
     return isOk;
@@ -201,7 +209,7 @@ int mostrarImporteDeAuto(eTrabajo* trabajos, int tam, eServicio* servicios, int 
             {
                 for(int j = 0; j<tamServicios; j++)
                 {
-                    if((trabajos+i)->estado == 1 && (trabajos+i)->idServicio == (servicios+j)->id)
+                    if((trabajos+i)->idServicio == (servicios+j)->id)
                     {
                         importe = importe + (servicios+j)->precio;
                         break;
@@ -219,7 +227,7 @@ int mostrarImporteDeAuto(eTrabajo* trabajos, int tam, eServicio* servicios, int 
 
 int mostrarServicioMasPedido(eServicio* servicios, int tamServicios, eTrabajo* trabajos, int tamTrabajo)
 {
-    int auxMax[4];
+    int auxMax[tamServicios];
     int indice;
     int max = 0;
     int flag = 0;
@@ -396,7 +404,7 @@ int facturacionTotalPorServicio(eAuto* autos, int tamAutos, eTrabajo* trabajos, 
         {
             if((trabajos+i)->estado == 1 && (trabajos+i)->idServicio == opcion)
             {
-               contador ++;
+                contador ++;
             }
         }
         for(int j = 0; j<tamServicios; j++)
@@ -412,6 +420,58 @@ int facturacionTotalPorServicio(eAuto* autos, int tamAutos, eTrabajo* trabajos, 
     return isOk;
 }
 
-
+int marcaMasServicios(eAuto* autos, int tamAutos, eTrabajo* trabajos, int tamTrabajos, eServicio* servicios, int tamServicios, eColor* colores, int tamColor, eMarca* marcas, int tamMarca, eCliente* clientes, int tamCliente)
+{
+    int opcion;
+    int isOk = 0;
+    int auxMax[tamMarca];
+    int max;
+    int flag = 0;
+    int indice;
+    char auxServicio[21];
+    if(colores != NULL && marcas != NULL && clientes != NULL && autos != NULL && servicios != NULL && trabajos != NULL)
+    {
+        mostrarServicio(servicios, tamServicios);
+        opcion = getInt("Eliga un ID: ");
+        if(!obtenerServicio(servicios, tamServicios, opcion, auxServicio))
+        {
+            printf("El servicio elegido no se encuentra!\n");
+            return isOk;
+        }
+        printf("El servicio que eligio es %s: ", auxServicio);
+        if(!confirma("Confirma? s/n: "))
+        {
+            printf("Informe cancelado! \n");
+            return isOk;
+        }
+        for(int i = 0; i < tamMarca ; i++)
+        {
+            auxMax[i] = 0;
+            for(int j = 0; j < tamAutos; j++)
+            {
+                if((autos+j)-> estado == 1 && (autos+j)->idMarca == (marcas+i)->id)
+                {
+                    for(int y = 0; y < tamTrabajos ; y++)
+                    {
+                        if((trabajos+y)->estado == 1 && (trabajos+y)->idServicio == opcion && strcmp((trabajos+y)->patente, (autos+j)->patente) == 0)
+                            auxMax[i]++;
+                    }
+                }
+            }
+        }
+        for(int i = 0; i < tamMarca; i++)
+        {
+            if(flag == 0 || max < auxMax[i])
+            {
+                max = auxMax[i];
+                flag = 1;
+                indice = i;
+            }
+        }
+        printf("La marca %s es la que efectua mas servicio %s\n", (marcas+indice)->descripcion, auxServicio);
+        isOk = 1;
+    }
+    return isOk;
+}
 
 

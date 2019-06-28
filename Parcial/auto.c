@@ -114,7 +114,7 @@ int altaAuto(eAuto* autos, int tam, eMarca* marcas, int tamMarca, eColor* colore
         {
             printf("Cliente invalido!\n");
         }
-        printf("El cliente que ingreso es: %s", auxCliente);
+        printf("El cliente que ingreso es: %s\n", auxCliente);
         confirmaCliente = tolower(getChar("Confirma? s/n: "));
         if(confirmaCliente != 's')
         {
@@ -128,7 +128,7 @@ int altaAuto(eAuto* autos, int tam, eMarca* marcas, int tamMarca, eColor* colore
             printf("La marca ingresada es invalida\n\n");
             return isOk;
         }
-        printf("La marca que ingreso es %s\n", auxMarca);
+        printf("La marca que ingreso es: %s\n", auxMarca);
         confirmaMarca = tolower(getChar("Confirma? s/n: "));
         if(confirmaMarca != 's')
         {
@@ -142,7 +142,7 @@ int altaAuto(eAuto* autos, int tam, eMarca* marcas, int tamMarca, eColor* colore
             printf("El color es invalido\n\n");
             return isOk;
         }
-        printf("El color que ingreso es %s", auxColor);
+        printf("El color que ingreso es %s\n", auxColor);
         confirmaColor = tolower(getChar("Confirma? s/n: "));
         if(confirmaColor != 's')
         {
@@ -154,6 +154,7 @@ int altaAuto(eAuto* autos, int tam, eMarca* marcas, int tamMarca, eColor* colore
         (autos+indice)->idColor = auxiliarColor;
         (autos+indice)->idMarca = auxiliarMarca;
         (autos+indice)->modelo = auxiliarModelo;
+        (autos+indice)->idCliente = auxiliarCliente;
         strcpy((autos+indice)->patente, auxPatente);
         (autos+indice)->estado = 1;
         *id = *id + 1;
@@ -229,7 +230,7 @@ void mostrarAuto(eColor* colores, int tamColor, eMarca* marcas, int tamMarca, eC
             strcpy(nombreCliente, "Sin definir");
         }
 
-        printf("%d    %-10s    %c         %-10s     %-10s     %-10s  %d\n", aAuto->id, nombreCliente, sexo, aAuto->patente, nombreMarca, nombreColor, aAuto->modelo);
+        printf("          %-2d    %-10s    %c         %-10s     %-10s     %-10s  %d\n", aAuto->id, nombreCliente, sexo, aAuto->patente, nombreMarca, nombreColor, aAuto->modelo);
     }
 }
 
@@ -251,8 +252,8 @@ void mostrarAutos(eColor* colores, int tamColor, eMarca* marcas, int tamMarca, e
     if(colores != NULL && marcas != NULL && clientes != NULL && autos != NULL)
     {
         system("cls");
-        printf(" ID    Nombre       Sexo       Patente        Marca          Color      Modelo\n");
-        printf(" --    ------       ----       -------        -----          -----      ------\n");
+        printf("          ID    Nombre       Sexo       Patente        Marca          Color      Modelo\n");
+        printf("          --    ------       ----       -------        -----          -----      ------\n");
         for(int i=0; i < tamAutos; i++)
         {
             if((autos+i)->estado == 1)
@@ -308,8 +309,8 @@ int bajaAuto(eAuto* autos, int tam, eColor* colores, int tamColor, eMarca* marca
         }
         else
         {
-            printf(" ID    Nombre       Sexo       Patente        Marca          Color      Modelo\n");
-            printf(" --    ------       ----       -------        -----          -----      ------\n");
+            printf("          ID    Nombre       Sexo       Patente        Marca          Color      Modelo\n");
+            printf("          --    ------       ----       -------        -----          -----      ------\n");
             mostrarAuto(colores, tamColor, marcas, tamMarca, clientes, tamCliente, autos+esta);
             confirma = tolower(getChar("\nConfirma la eliminiacion? s/n: "));
             if(confirma == 's')
@@ -407,8 +408,8 @@ int modificarAuto(eAuto* autos, int tam, eColor* colores, int tamColor, eMarca* 
         else
         {
             system("cls");
-            printf(" ID    Nombre       Sexo       Patente        Marca          Color      Modelo\n");
-            printf(" --    ------       ----       -------        -----          -----      ------\n");
+            printf("          ID    Nombre       Sexo       Patente        Marca          Color      Modelo\n");
+            printf("          --    ------       ----       -------        -----          -----      ------\n");
             mostrarAuto(colores, tamColor, marcas, tamMarca, clientes, tamCliente, (autos+esta));
             printf("\n\n");
             switch(menuModificar())

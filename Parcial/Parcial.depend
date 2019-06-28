@@ -189,7 +189,7 @@
 	"disconsi.h"
 	"trabajo.h"
 
-1560718132 source:c:\users\rodri\desktop\usb\primer parcial\parcial\cliente.c
+1561744732 source:c:\users\rodri\desktop\usb\primer parcial\parcial\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -221,7 +221,7 @@
 
 1558814018 c:\users\rodri\desktop\usb\primer parcial\parcial\fecha.h
 
-1561697040 source:c:\users\rodri\desktop\usb\primer parcial\parcial\main.c
+1561747494 source:c:\users\rodri\desktop\usb\primer parcial\parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -250,7 +250,7 @@
 
 1560751354 c:\users\rodri\desktop\usb\primer parcial\parcial\marca.h
 
-1560750983 c:\users\rodri\desktop\usb\primer parcial\parcial\menu.h
+1561742053 c:\users\rodri\desktop\usb\primer parcial\parcial\menu.h
 
 1560718331 source:c:\users\rodri\desktop\usb\primer parcial\parcial\marca.c
 	<stdio.h>
@@ -258,7 +258,7 @@
 	<string.h>
 	"marca.h"
 
-1560814974 source:c:\users\rodri\desktop\usb\primer parcial\parcial\menu.c
+1561741593 source:c:\users\rodri\desktop\usb\primer parcial\parcial\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"disconsi.h"
@@ -270,7 +270,7 @@
 	<string.h>
 	"servicios.h"
 
-1561690756 source:c:\users\rodri\desktop\usb\primer parcial\parcial\trabajo.c
+1561744401 source:c:\users\rodri\desktop\usb\primer parcial\parcial\trabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -278,7 +278,7 @@
 	"disconsi.h"
 	"trabajo.h"
 
-1561690692 source:c:\users\rodri\desktop\usb\primer parcial\parcial\auto.c
+1561744670 source:c:\users\rodri\desktop\usb\primer parcial\parcial\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -287,11 +287,11 @@
 	"auto.h"
 	"menu.h"
 
-1561692951 c:\users\rodri\desktop\usb\primer parcial\parcial\informes.h
+1561742038 c:\users\rodri\desktop\usb\primer parcial\parcial\informes.h
 	"trabajo.h"
 	"auto.h"
 
-1561698026 source:c:\users\rodri\desktop\usb\primer parcial\parcial\informes.c
+1561747803 source:c:\users\rodri\desktop\usb\primer parcial\parcial\informes.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>

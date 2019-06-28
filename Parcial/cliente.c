@@ -9,10 +9,10 @@ void mostrarCliente(eCliente* clientes, int tam)
     if(clientes != NULL)
     {
         printf("\n    CLIENTES\n");
-    printf(" ID       Descripcion\n");
-    printf(" --       -----------\n");
+    printf("    ID       Descripcion    SEX\n");
+    printf("    --       -----------    ---\n");
     for(int i=0; i < tam; i++){
-        printf(" %d     %-10s      %c\n", (clientes+i)->id, (clientes+i)->nombre, (clientes+i)->sexo);
+        printf("    %-5d     %-10s     %c\n", (clientes+i)->id, (clientes+i)->nombre, (clientes+i)->sexo);
     }
     printf("\n\n");
     }

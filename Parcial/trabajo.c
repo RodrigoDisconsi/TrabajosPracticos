@@ -168,7 +168,7 @@ void mostrarTrabajo(eServicio* servicios, int tam, eTrabajo* trabajo)
         strcpy(nombreServicio, "Sin definir");
     }
 
-    printf("%d       %-10s    %-10s     %d/%d/%d\n", trabajo->id, trabajo->patente, nombreServicio, trabajo->fecha);
+    printf("         %-2d       %-10s    %-10s     %d/%d/%d\n", trabajo->id, trabajo->patente, nombreServicio, trabajo->fecha);
 }
 
 /** \brief Muestra un array de eTrabajo*.
@@ -185,8 +185,8 @@ void mostrarTrabajos(eTrabajo* trabajos, int tam, eServicio* servicios, int tamS
     {
         system("cls");
         int contador = 0;
-        printf(" ID        Patente       Servicio        FECHA\n");
-        printf(" --        -------       --------        -----\n");
+        printf("         ID        Patente       Servicio        FECHA\n");
+        printf("         --        -------       --------        -----\n");
         for(int i=0; i < tam; i++)
         {
             if((trabajos+i)->estado == 1)

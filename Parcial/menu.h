@@ -3,5 +3,5 @@
 
 int menuPrincipal();
 int menuModificar();
-
+int menuInformes();
 #endif // MENU_H_INCLUDED

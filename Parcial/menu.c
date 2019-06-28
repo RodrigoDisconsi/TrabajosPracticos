@@ -24,15 +24,8 @@ int menuPrincipal()
     printf("8- Listar Servicios\n");
     printf("9- Alta Trabajo\n");
     printf("10- Listar Trabajos\n");
-    printf("11- Mostrar autos por color\n");
-    printf("12- Mostrar autos por marcas\n");
-    printf("13- Mostrar trabajos efectuados a un auto\n");
-    printf("14- Mostrar trabajos en una fecha determinada\n");
-    printf("15- Mostrar autos sin trabajo\n");
-    printf("16- Mostrar importes de un auto\n");
-    printf("17- Mostrar servicio mas pedido\n");
-    printf("18- Mostrar recaudacion en fecha\n");
-    printf("24- Salir\n\n");
+    printf("11- Informes\n");
+    printf("12- Salir\n\n");
     opcion = getInt("Ingrese una opcion: ");
     printf("\n\n");
     return opcion;
@@ -48,6 +41,29 @@ int menuModificar()
     printf("1- Cambiar color\n");
     printf("2- Cambiar modelo\n");
     printf("3- Salir\n\n");
+    opcion = getInt("Ingrese una opcion: ");
+    printf("\n\n");
+    return opcion;
+}
+
+int menuInformes()
+{
+    int opcion;
+    system("cls");
+    printf("  *** INFORMES ***\n\n");
+    printf("1- Mostrar autos por color seleccionado\n");
+    printf("2- Mostrar autos por marcas seleccionada\n");
+    printf("3- Mostrar trabajos efectuados a un auto\n");
+    printf("4- Mostrar autos sin trabajo\n");
+    printf("5- Mostrar importes de trabajo a un auto\n");
+    printf("6- Mostrar servicio mas pedido\n");
+    printf("7- Mostrar recaudacion en una fecha\n");
+    printf("8- Mostrar autos por servicio seleccionado y la fecha\n");
+    printf("9- Mostrar trabajos realizados a un auto por color seleccionado\n");
+    printf("10- Mostrar facturacion de un servicio selccionado\n");
+    printf("11- Mostrar la marca que efectua mas servicio seleccionado\n");
+    printf("12- Mostrar autos que recibieron trabajos en una fecha determinada\n");
+    printf("13- Salir\n\n");
     opcion = getInt("Ingrese una opcion: ");
     printf("\n\n");
     return opcion;

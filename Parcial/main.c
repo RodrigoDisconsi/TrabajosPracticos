@@ -7,7 +7,7 @@
 #include "informes.h"
 #include "menu.h"
 #define TAM 100
-#define TAMCLIENTES 21
+#define TAMCLIENTES 22
 #define TAMCM 5
 #define TAMS 5
 
@@ -16,7 +16,9 @@
 int main()
 {
     char seguir = 's';
+    char seguirInformes = 's';
     char confirma;
+    char confirmaInformes;
     int todoOk;
     int id = 100;
     int idTrabajo = 3000;
@@ -58,7 +60,7 @@ int main()
         {34, "HTD656", 20002, {12,2,2019}, 1},
         {35, "QSZ435", 20000, {21,1,2019}, 1},
     };
-eAuto lista[TAM]=
+    eAuto lista[TAM]=
     {
         {0,1, "AAA201", 1000, 5001, 1995, 1},
         {1,2,"DFR234", 1003, 5000, 2002, 1},
@@ -81,7 +83,7 @@ eAuto lista[TAM]=
         {18,19,"QSZ305", 1004, 5002, 1993, 1},
         {19,20,"SSD128", 1002, 5003, 1992, 1},
         {20,21,"SSD240", 1003, 5004, 1992, 1},
-        {21,100,"EDF213", 1001, 5000, 2001, 1},
+        {21,22,"EDF213", 1001, 5000, 2001, 1},
     };
     eCliente clientes[TAMCLIENTES] =
     {
@@ -90,22 +92,23 @@ eAuto lista[TAM]=
         {3, "Aldana", 'f'},
         {4, "Leila", 'f'},
         {5, "Azul", 'f'},
-        {6, "Augusto", 'm'},
-        {7, "Franco", 'm'},
-        {8, "Aldana", 'f'},
-        {9, "Leila", 'f'},
-        {10, "Azul", 'f'},
-        {11, "Augusto", 'm'},
-        {12, "Franco", 'm'},
-        {13, "Aldana", 'f'},
-        {14, "Leila", 'f'},
-        {15, "Azul", 'f'},
-        {16, "Augusto", 'm'},
-        {17, "Franco", 'm'},
-        {18, "Aldana", 'f'},
-        {19, "Leila", 'f'},
-        {20, "Azul", 'f'},
-        {21, "Augusto", 'm'},
+        {6, "Rodrigo", 'm'},
+        {7, "Ezequiel", 'm'},
+        {8, "Yamila", 'f'},
+        {9, "Delfina", 'f'},
+        {10, "Violeta", 'f'},
+        {11, "Hernest", 'm'},
+        {12, "Dylan", 'm'},
+        {13, "Micaela", 'f'},
+        {14, "Camila", 'f'},
+        {15, "Fernanda", 'f'},
+        {16, "Bruno", 'm'},
+        {17, "Santiago", 'm'},
+        {18, "Magali", 'f'},
+        {19, "Camila", 'f'},
+        {20, "Monica", 'f'},
+        {21, "Lucas", 'm'},
+        {22, "Fernando", 'm'}
 
     };
     eColor colores[] =
@@ -119,11 +122,11 @@ eAuto lista[TAM]=
     };
     eMarca marcas[] =
     {
-        {1000, "Chevrolet"},
+        {1000, "Renault"},
         {1001, "Fiat"},
         {1002, "Ford"},
-        {1003, "Peugeot"},
-        {1004, "Renault"},
+        {1003, "Chevrolet"},
+        {1004, "Peugeot"},
     };
     eServicio servicios[] =
     {
@@ -174,7 +177,7 @@ eAuto lista[TAM]=
                 system("pause");
                 break;
             }
-            ordenarAutos(lista, TAM);
+            //ordenarAutos(lista, TAM);
             mostrarAutos(colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM);
             system("pause");
             break;
@@ -226,82 +229,92 @@ eAuto lista[TAM]=
             system("pause");
             break;
         case 11:
-            if(!mostrarAutosColores(colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
+            if(hayTrabajoParaMostrar(trabajos, TAM) == -1 && hayAutoParaMostrar(lista, TAM) == -1)
             {
-                printf("Error.\n");
+                printf("No hay trabajos o autos cargados.\n\n");
+                system("Pause");
+                break;
             }
-            system("pause");
-            break;
-        case 12:
-            if(!mostrarAutosMarca(colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
+            do
             {
-                printf("Error.\n");
+                switch(menuInformes())
+                {
+                case 1:
+                    if(!mostrarAutosColores(colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 2:
+                    if(!mostrarAutosMarca(colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 3:
+                    if(!mostrarTrabajoAuto(trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 4:
+                    if(!mostrarAutoSinTrabajo(trabajos, TAM, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
+                        printf("No hay autos sin trabajo.\n");
+                    system("Pause");
+                    break;
+                case 5:
+                    if(!mostrarImporteDeAuto(trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 6:
+                    if(!mostrarServicioMasPedido(servicios, TAMS, trabajos, TAM))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 7:
+                    if(!mostrarRecaudacionFecha(trabajos, TAM, servicios, TAMS))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 8:
+                    if(!mostrarAutosServicios(lista, TAM, trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
+                        printf("No hay autos con el servicio seleccionado!\n");
+                    system("Pause");
+                    break;
+                case 9:
+                    if(!trabajosRealizadosAutosXColor(lista, TAM, trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
+                        printf("No hay trabajos con el color seleccionado!\n");
+                    system("Pause");
+                    break;
+                case 10:
+                    if(!facturacionTotalPorServicio(lista, TAM, trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 11:
+                    if(!marcaMasServicios(lista, TAM, trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
+                        printf("Error.\n");
+                    system("Pause");
+                    break;
+                case 12:
+                    if(!mostrarAutoFecha(lista, TAM, trabajos, TAM, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
+                        printf("No hay autos en la fecha seleccionada!\n");
+                    system("Pause");
+                    break;
+                case 13:
+                    confirmaInformes = getChar("\nConfirma salida s/n?: ");
+                    if( tolower(confirmaInformes) == 's')
+                    {
+                        seguir = 'n';
+                    }
+                    system("pause");
+                    break;
+                default:
+                    printf("\nOpcion invalida\n\n");
+                    system("Pause");
+                    break;
+                }
             }
-            system("pause");
-            break;
-        case 13:
-            if(!mostrarTrabajoAuto(trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
-            {
-                printf("Error.\n");
-            }
-            system("pause");
-            break;
-        case 14:
-            if(!mostrarTrabajoFecha(trabajos, TAM, servicios, TAMS))
-            {
-                printf("Error.\n");
-            }
-            system("pause");
-            break;
-        case 15:
-            if(!mostrarAutoSinTrabajo(trabajos, TAM, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
-            {
-                printf("No hay autos sin trabajo.\n");
-
-            }
-            system("pause");
-            break;
-        case 16:
-            if(!mostrarImporteDeAuto(trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES, lista, TAM))
-            {
-                printf("Error.\n");
-            }
-            system("pause");
-            break;
-        case 17:
-            if(!mostrarServicioMasPedido(servicios, TAMS, trabajos, TAM))
-            {
-                printf("Error.\n");
-            }
-            system("pause");
-            break;
-       case 18:
-            if(!mostrarRecaudacionFecha(trabajos, TAM, servicios, TAMS))
-            {
-                printf("Error.\n");
-            }
-            system("pause");
-            break;
-       case 19:
-           if(!mostrarAutosServicios(lista, TAM, trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
-           {
-               printf("No hay autos con el servicio seleccionado!\n");
-           }
-           system("pause");
-            break;
-        case 20:
-        if(!trabajosRealizadosAutosXColor(lista, TAM, trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
-           {
-               printf("No hay trabajos con el color seleccionado!\n");
-           }
-           system("pause");
-            break;
-       case 21:
-        if(!facturacionTotalPorServicio(lista, TAM, trabajos, TAM, servicios, TAMS, colores, TAMCM, marcas, TAMCM, clientes, TAMCLIENTES))
-           {
-               printf("Error.\n");
-           }
-           system("pause");
+            while(seguirInformes == 's');
+            system("Pause");
             break;
         case 24:
             confirma = getChar("\nConfirma salida s/n?: ");

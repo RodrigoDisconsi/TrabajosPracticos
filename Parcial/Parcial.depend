@@ -1,0 +1,301 @@
+# depslib dependency file v1.0
+1557771126 source:c:\users\rodri\desktop\parcial\disconsi.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1557770563 c:\users\rodri\desktop\parcial\disconsi.h
+
+1559590534 source:c:\users\rodri\desktop\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"disconsi.h"
+	"trabajo.h"
+	"menu.h"
+
+1557681389 source:c:\users\rodri\desktop\parcial\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"disconsi.h"
+	"menu.h"
+
+1557189912 c:\users\rodri\desktop\parcial\menu.h
+	<stdio.h>
+
+1558813253 source:c:\users\rodri\desktop\parcial\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1558813876 c:\users\rodri\desktop\parcial\marca.h
+
+1558479724 source:c:\users\rodri\desktop\parcial\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1558813761 c:\users\rodri\desktop\parcial\color.h
+	<stdio.h>
+	<stdlib.h>
+
+1559590343 source:c:\users\rodri\desktop\parcial\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"disconsi.h"
+	"auto.h"
+	"menu.h"
+
+1559586639 c:\users\rodri\desktop\parcial\auto.h
+	<stdio.h>
+	<stdlib.h>
+	"marca.h"
+	"cliente.h"
+	"color.h"
+
+1558813253 source:c:\users\rodri\desktop\parcial\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicios.h"
+
+1559507586 c:\users\rodri\desktop\parcial\servicios.h
+
+1559590042 c:\users\rodri\desktop\parcial\trabajo.h
+	"fecha.h"
+	"servicios.h"
+	"auto.h"
+	"cliente.h"
+
+1559590446 source:c:\users\rodri\desktop\parcial\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"disconsi.h"
+	"trabajo.h"
+
+1558814017 c:\users\rodri\desktop\parcial\fecha.h
+
+1557774228 source:c:\users\rodri\desktop\parcial\fecha.c
+	"fecha.h"
+
+1558814085 c:\users\rodri\desktop\parcial\cliente.h
+
+1559505331 source:c:\users\rodri\desktop\parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+
+1559590344 source:e:\primer parcial\parcial\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"disconsi.h"
+	"auto.h"
+	"menu.h"
+
+1557770564 e:\primer parcial\parcial\disconsi.h
+
+1559586640 e:\primer parcial\parcial\auto.h
+	<stdio.h>
+	<stdlib.h>
+	"marca.h"
+	"cliente.h"
+	"color.h"
+
+1558813878 e:\primer parcial\parcial\marca.h
+
+1558814086 e:\primer parcial\parcial\cliente.h
+
+1558813762 e:\primer parcial\parcial\color.h
+	<stdio.h>
+	<stdlib.h>
+
+1557189912 e:\primer parcial\parcial\menu.h
+	<stdio.h>
+
+1559505332 source:e:\primer parcial\parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+
+1558479726 source:e:\primer parcial\parcial\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1557771128 source:e:\primer parcial\parcial\disconsi.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1557774230 source:e:\primer parcial\parcial\fecha.c
+	"fecha.h"
+
+1558814018 e:\primer parcial\parcial\fecha.h
+
+1559590536 source:e:\primer parcial\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"disconsi.h"
+	"trabajo.h"
+	"menu.h"
+
+1559590044 e:\primer parcial\parcial\trabajo.h
+	"fecha.h"
+	"servicios.h"
+	"auto.h"
+	"cliente.h"
+
+1559507588 e:\primer parcial\parcial\servicios.h
+
+1558813254 source:e:\primer parcial\parcial\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1557681390 source:e:\primer parcial\parcial\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"disconsi.h"
+	"menu.h"
+
+1558813254 source:e:\primer parcial\parcial\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicios.h"
+
+1559608652 source:e:\primer parcial\parcial\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"disconsi.h"
+	"trabajo.h"
+
+1560718132 source:c:\users\rodri\desktop\usb\primer parcial\parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"cliente.h"
+
+1560751453 c:\users\rodri\desktop\usb\primer parcial\parcial\cliente.h
+
+1560718331 source:c:\users\rodri\desktop\usb\primer parcial\parcial\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1560810555 c:\users\rodri\desktop\usb\primer parcial\parcial\color.h
+	<stdio.h>
+	<stdlib.h>
+
+1561697360 source:c:\users\rodri\desktop\usb\primer parcial\parcial\disconsi.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"disconsi.h"
+
+1561697159 c:\users\rodri\desktop\usb\primer parcial\parcial\disconsi.h
+
+1557774230 source:c:\users\rodri\desktop\usb\primer parcial\parcial\fecha.c
+	"fecha.h"
+
+1558814018 c:\users\rodri\desktop\usb\primer parcial\parcial\fecha.h
+
+1561697040 source:c:\users\rodri\desktop\usb\primer parcial\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"disconsi.h"
+	"trabajo.h"
+	"informes.h"
+	"menu.h"
+
+1561690803 c:\users\rodri\desktop\usb\primer parcial\parcial\trabajo.h
+	"servicios.h"
+	"fecha.h"
+	"cliente.h"
+	"marca.h"
+	"color.h"
+
+1561697245 c:\users\rodri\desktop\usb\primer parcial\parcial\servicios.h
+	"auto.h"
+
+1561690630 c:\users\rodri\desktop\usb\primer parcial\parcial\auto.h
+	<stdio.h>
+	<stdlib.h>
+	"marca.h"
+	"cliente.h"
+	"color.h"
+
+1560751354 c:\users\rodri\desktop\usb\primer parcial\parcial\marca.h
+
+1560750983 c:\users\rodri\desktop\usb\primer parcial\parcial\menu.h
+
+1560718331 source:c:\users\rodri\desktop\usb\primer parcial\parcial\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1560814974 source:c:\users\rodri\desktop\usb\primer parcial\parcial\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"disconsi.h"
+	"menu.h"
+
+1560810740 source:c:\users\rodri\desktop\usb\primer parcial\parcial\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicios.h"
+
+1561690756 source:c:\users\rodri\desktop\usb\primer parcial\parcial\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"disconsi.h"
+	"trabajo.h"
+
+1561690692 source:c:\users\rodri\desktop\usb\primer parcial\parcial\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"disconsi.h"
+	"auto.h"
+	"menu.h"
+
+1561692951 c:\users\rodri\desktop\usb\primer parcial\parcial\informes.h
+	"trabajo.h"
+	"auto.h"
+
+1561698026 source:c:\users\rodri\desktop\usb\primer parcial\parcial\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"disconsi.h"
+	"informes.h"
+
